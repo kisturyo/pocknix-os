@@ -31,16 +31,15 @@ mapping:
     target_event:
       gamepad: { button: East }
 
-  # X/Y swap: physical X reports BTN_NORTH -> West; physical Y reports BTN_WEST -> North.
-  - name: West Button (physical X)
+  - name: West Button
     source_events:
-      - evdev: { event_type: KEY, event_code: BTN_NORTH, value_type: button }
+      - evdev: { event_type: KEY, event_code: BTN_WEST, value_type: button }
     target_event:
       gamepad: { button: West }
 
-  - name: North Button (physical Y)
+  - name: North Button
     source_events:
-      - evdev: { event_type: KEY, event_code: BTN_WEST, value_type: button }
+      - evdev: { event_type: KEY, event_code: BTN_NORTH, value_type: button }
     target_event:
       gamepad: { button: North }
 

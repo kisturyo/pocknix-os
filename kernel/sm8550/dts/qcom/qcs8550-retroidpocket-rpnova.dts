@@ -28,8 +28,6 @@
 };
 
 &gamepad {
-	invert-x;
-	invert-y;
 	trigger-left-deadzone = <100>;
 	trigger-right-deadzone = <100>;
 };

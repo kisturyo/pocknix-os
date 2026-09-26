@@ -10,8 +10,3 @@
 / {
 	model = "Retroid Pocket 6 TOP-DPAD";
 };
-
-&gamepad {
-    invert-x;
-    invert-y;
-};

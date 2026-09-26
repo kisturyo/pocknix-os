@@ -5,8 +5,6 @@
 # per-device maps were byte-identical apart from their ids).
 # Adapted from armada's ayn_mcu map (which matches the RP6 + AYN Odin family on the same
 # rsinput-gamepad/input0 source). Why we need it (vs InputPlumber's auto-detect):
-#   * X/Y are inverted at the driver — source BTN_NORTH is physically X (West), BTN_WEST is
-#     physically Y (North). The two swap entries below fix that.
 #   * the d-pad (BTN_DPAD_*) wasn't reaching the target without an explicit mapping.
 #   * BTN_MODE -> Guide, BTN_BACK -> QuickAccess (the RP6 "..." button).
 # The back paddles emit BTN_Z (left) / BTN_C (right) on the separate gpio-keys/input0 node,
@@ -44,16 +42,15 @@ mapping:
     target_event:
       gamepad: { button: East }
 
-  # X/Y swap: physical X reports BTN_NORTH -> West; physical Y reports BTN_WEST -> North.
-  - name: West Button (physical X)
+  - name: West Button
     source_events:
-      - evdev: { event_type: KEY, event_code: BTN_NORTH, value_type: button }
+      - evdev: { event_type: KEY, event_code: BTN_WEST, value_type: button }
     target_event:
       gamepad: { button: West }
 
-  - name: North Button (physical Y)
+  - name: North Button
     source_events:
-      - evdev: { event_type: KEY, event_code: BTN_WEST, value_type: button }
+      - evdev: { event_type: KEY, event_code: BTN_NORTH, value_type: button }
     target_event:
       gamepad: { button: North }
 
